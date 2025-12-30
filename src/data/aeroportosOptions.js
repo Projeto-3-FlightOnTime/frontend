@@ -1,6 +1,6 @@
 export const aeroportosOptions = [
 
-  // 🇧🇷 Brasil – principais hubs
+  //Brasil
   { value: "SBGR", label: "São Paulo - Guarulhos (GRU)" },
   { value: "SBSP", label: "São Paulo - Congonhas (CGH)" },
   { value: "SBGL", label: "Rio de Janeiro - Galeão (GIG)" },
