@@ -200,7 +200,7 @@ export default function App() {
                 <div className="flex justify-between">
                   <span className="text-gray-400">Prob. atraso:</span>
                   <span className="text-yellow-300 font-medium">
-                    {item.resultado.probabilidade}%
+                    {(item.resultado.probabilidade * 100).toFixed(0)}%
                   </span>
                 </div>
 
