@@ -28,7 +28,7 @@ A aplicação consome uma **API REST** responsável por realizar a predição de
 
 ## 📂 Estrutura de Pastas
 
-`text
+```text
 src/
 ├── components/
 │   ├── Button.jsx
