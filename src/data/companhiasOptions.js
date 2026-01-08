@@ -43,7 +43,7 @@ export const companhiasOptions = [
   { value: "FBZ", label: "FB LÍNEAS AÉREAS S.A (FLYBONDI)" },
   { value: "FDX", label: "FEDEX - FEDERAL EXPRESS CORPORATION" },
   { value: "GEC", label: "LUFTHANSA CARGO AG" },
-  { value: "GLO", label: "GOL LINHAS AÉREAS S.A. (EX- VRG LINHAS AÉREAS S.A.)" },
+  { value: "GLO", label: "GOL LINHAS AÉREAS S.A." },
   { value: "GTI", label: "ATLAS AIR INC" },
   { value: "GXA", label: "GLOBAL CROSSING AIRLINES, INC." },
   { value: "HFM", label: "HI FLY LIMITED (EX-MALTA)" },
@@ -102,4 +102,7 @@ export const companhiasOptions = [
   { value: "UKL", label: "UKRAINE AIR ALLIANCE AIRLINES" },
   { value: "UPS", label: "UPS - UNITED PARCEL SERVICE CO." },
   { value: "VCV", label: "CONSORCIO VENEZOLANO DE INDUSTRIAS AERONAUTICAS Y SERVICIOS AÉREOS S.A., CONVIASA" }
-];
+] .filter(companhia => /^[A-Z]{3}$/.test(companhia.value))
+  .sort((a, b) =>
+    a.label.localeCompare(b.label, "pt-BR", { sensitivity: "base" })
+  );

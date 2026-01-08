@@ -7,7 +7,40 @@ import axios from "axios";
 
 /* 🔹 Helper para pegar label pelo value */
 function getLabel(options, value) {
-  return options.find((opt) => opt.value === value)?.label || value;
+  const option = options.find((opt) => opt.value === value);
+
+  if (!option) return value || "-";
+
+  return `${option.value} - ${option.label}`;
+}
+
+/* 🔹 Helper para enviar datetime com offset (OffsetDateTime) */
+function toOffsetISOString(localDateTime) {
+  const date = new Date(localDateTime);
+
+  const offsetMinutes = -date.getTimezoneOffset();
+  const sign = offsetMinutes >= 0 ? "+" : "-";
+  const pad = (n) => String(Math.floor(Math.abs(n))).padStart(2, "0");
+
+  const hours = pad(offsetMinutes / 60);
+  const minutes = pad(offsetMinutes % 60);
+
+  return (
+    date.getFullYear() +
+    "-" +
+    pad(date.getMonth() + 1) +
+    "-" +
+    pad(date.getDate()) +
+    "T" +
+    pad(date.getHours()) +
+    ":" +
+    pad(date.getMinutes()) +
+    ":00" +
+    sign +
+    hours +
+    ":" +
+    minutes
+  );
 }
 
 export default function App() {
@@ -45,7 +78,7 @@ export default function App() {
       cod_companhia: codCompanhia,
       cod_aeroporto_origem: codAeroportoOrigem,
       cod_aeroporto_destino: codAeroportoDestino,
-      data_hora_partida: new Date(dataHoraPartida).toISOString(),
+      data_hora_partida: toOffsetISOString(dataHoraPartida),
     };
 
     try {

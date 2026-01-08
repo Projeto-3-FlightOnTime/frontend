@@ -421,4 +421,7 @@ export const aeroportosOptions = [
   { value: "ZBAA", label: "BEIJING CAPITAL INTERNATIONAL AIRPORT" },
   { value: "ZHCC", label: "ZHENGZHOU XINZHENG INTERNATIONAL AIRPORT" },
   { value: "ZHHH", label: "WUHAN TIANHE AIRPORT" }
-]; 
+].filter(aeroporto => /^[A-Z]{4}$/.test(aeroporto.value))
+  .sort((a, b) =>
+    a.label.localeCompare(b.label, "pt-BR", { sensitivity: "base" })
+  );
