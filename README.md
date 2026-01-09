@@ -53,7 +53,7 @@ A URL da API utilizada pelo front-end é configurada via variável de ambiente.
 
 Na raiz do projeto, crie um arquivo chamado `.env` com o seguinte conteúdo:
 
-```env
+``env
 VITE_API_URL=http://(url do back-end)
 
 Adicione o arquivo .env ao .gitignore para evitar versionamento de dados sensíveis:
@@ -95,16 +95,16 @@ A URL base do endpoint é definida pela variável VITE_API_URL.
 
 📤 Exemplo de Payload Enviado
 {
-  "cod_companhia": "GOL",
-  "cod_aeroporto_origem": "GRU",
-  "cod_aeroporto_destino": "SDU",
+  "cod_companhia": "GLO",
+  "cod_aeroporto_origem": "SBFZ",
+  "cod_aeroporto_destino": "SBGL",
   "data_hora_partida": "2025-12-31T12:00:00.000Z"
 }
 
 📥 Exemplo de Resposta da API
 {
   "status_predicao": "Pontual",
-  "probabilidade": 18,
+  "probabilidade": 0.30,
   "mensagem": "Alta chance de o voo ocorrer sem atrasos."
 }
 
