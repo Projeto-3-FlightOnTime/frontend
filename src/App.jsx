@@ -237,7 +237,7 @@ export default function App() {
                   </span>
                 </div>
 
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 text-base">
                   {item.resultado.mensagem}
                 </p>
               </div>
