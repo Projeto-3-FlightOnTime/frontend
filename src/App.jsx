@@ -25,7 +25,6 @@ export default function App() {
           loading={loading}
           error={error}
         />
-
         <FlightHistory historico={historico} />
       </div>
     </section>
