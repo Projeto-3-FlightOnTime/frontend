@@ -65,7 +65,7 @@ export function FlightHistory({ historico }) {
             </div>
 
             <p className="text-gray-400 text-base">
-              {item.resultado.messagem}
+              {item.resultado.mensagem}
             </p>
           </div>
         ))
