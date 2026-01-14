@@ -73,6 +73,7 @@ A aplicação ficará disponível em:
 http://localhost:5173
 
 ### 📂 Estrutura de Pastas
+```
 src/
 ├── components/
 │   ├── Button.jsx
@@ -93,7 +94,7 @@ src/
 │
 ├── App.jsx
 └── main.jsx
-
+```
 
 ### 📁 Descrição das Pastas
 components/

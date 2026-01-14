@@ -10,9 +10,9 @@ export default function App() {
     <section className="min-h-screen w-full bg-gray-800 flex flex-col items-center px-4">
       <header className="w-full max-w-6xl flex items-center justify-center gap-3 py-10">
         <img
-          src="/icon.svg"
+          src="/icon.png"
           alt="Flight On Time"
-          className="w-10 h-10 invert brightness-200"
+          className="w-32 h-32"
         />
         <h1 className="text-3xl md:text-4xl font-semibold text-white">
           Flight On Time
