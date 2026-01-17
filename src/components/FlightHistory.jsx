@@ -42,9 +42,8 @@ export function FlightHistory({ historico }) {
 
               <span className="text-gray-400">Partida:</span>
               <span>
-                {new Date(
-                  item.voo.data_hora_partida
-                ).toLocaleString()}
+                {new Date(item.voo.data_hora_partida).toLocaleString('pt-BR', 
+                  {timeZone: 'UTC'})}
               </span>
             </div>
 
