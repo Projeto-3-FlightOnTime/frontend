@@ -39,7 +39,7 @@ export function FlightForm({ onSubmit, loading, error }) {
   }
 
   return (
-    <div className="w-full max-w-md border border-gray-400 p-6 rounded-lg flex flex-col gap-4">
+    <div className="w-full max-w-md border max-h-[460px] border-gray-400 p-6 rounded-lg flex flex-col gap-4">
       <SelectField
         label="Empresa Aérea"
         required

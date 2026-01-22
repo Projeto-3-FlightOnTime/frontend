@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
+/* 🔹 Normaliza texto (acentos, maiúsculas) */
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 export function SelectField({
   label,
   options = [],
@@ -18,7 +26,7 @@ export function SelectField({
   useEffect(() => {
     const selected = options.find((opt) => opt.value === value);
     if (selected) {
-      setSearch(`${selected.value} - ${selected.label}`);
+      setSearch(selected.label);
     } else {
       setSearch("");
     }
@@ -41,18 +49,21 @@ export function SelectField({
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
- const filteredOptions = options.filter((option) =>
-  option.label.toLowerCase().startsWith(search.toLowerCase()) 
-);
-
+  /* 🔹 Filtro autocomplete (nome, cidade, sigla) */
+    const filteredOptions = (search
+      ? options.filter((option) =>
+          normalize(`${option.label} ${option.value}`).includes(
+            normalize(search)
+          )
+        )
+      : options
+    ).slice(0, 200);
 
   function handleSelect(option) {
     onChange({
-      target: {
-        value: option.value,
-      },
+      target: { value: option.value },
     });
-    setSearch(` ${option.label} - ${option.value}`);
+    setSearch(option.label);
     setOpen(false);
     setHighlightedIndex(-1);
   }
@@ -113,14 +124,14 @@ export function SelectField({
           {filteredOptions.map((option, index) => (
             <li
               key={option.value}
-              onClick={() => handleSelect(option)}
+              onMouseDown={() => handleSelect(option)}
               className={`px-3 py-2 cursor-pointer text-white ${
                 index === highlightedIndex
                   ? "bg-indigo-600"
                   : "hover:bg-indigo-500"
               }`}
             >
-              {option.label} - {option.value} 
+              {option.label}
             </li>
           ))}
         </ul>
